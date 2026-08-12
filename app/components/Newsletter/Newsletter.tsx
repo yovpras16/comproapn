@@ -1,65 +1,40 @@
+"use client";
 import Image from "next/image";
 import { getImagePath } from "../../../lib/utils";
 
 const Newsletter = () => {
   return (
-    <div className="-mt-32 relative z-3">
-      <div className="mx-auto max-w-2xl lg:max-w-7xl bg-blue-500 rounded-3xl">
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 lg:grid-cols-2 xl:gap-x-8">
-          {/* COLUMN-1 */}
-          <div className="hidden lg:block">
-            <div className="float-right pt-20 relative">
-              <Image
-                src={getImagePath("/assets/newsletter/bgImage.png")}
-                alt="bgimg"
-                width={588}
-                height={334}
-              />
-              <div className="absolute top-10 right-0">
-                <Image
-                  src={getImagePath("/assets/newsletter/leaf.svg")}
-                  alt="leafimg"
-                  width={81}
-                  height={81}
-                />
-              </div>
-              <div className="absolute bottom-8 left-2">
-                <Image
-                  src={getImagePath("/assets/newsletter/circel.svg")}
-                  alt="circleimg"
-                  width={30}
-                  height={30}
-                />
-              </div>
-            </div>
+    <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 my-16">
+      <div className="bg-gradient-to-r from-navyblue via-darkblue to-blue rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden border border-blue/20">
+        <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div className="lg:col-span-7">
+            <span className="text-blue font-bold text-xs sm:text-sm uppercase tracking-wider bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20">
+              Dapatkan Penawaran Harga & Katalog Produk
+            </span>
+            <h3 className="text-3xl sm:text-4xl font-extrabold mt-4 leading-tight">
+              Tertarik Bermitra atau Butuh Pengadaan Produk?
+            </h3>
+            <p className="mt-3 text-base text-white/80 leading-relaxed font-medium">
+              Tinggalkan alamat email atau nomor kontak Anda. Tim pemasaran PT Arta Perdana Nusantara akan segera menghubungi Anda dengan penawaran terbaik.
+            </p>
           </div>
 
-          {/* COLUMN-2 */}
-          <div className="p-10 flex flex-col justify-center">
-            <h3 className="text-4xl md:text-5xl font-semibold mb-3 text-white">
-              Sign up to our newsletter.
-            </h3>
-            <h4 className="text-base font-normal mb-7 text-offwhite">
-              Craven omni memoria patriae zombieland clairvius narcisse
-              religionis sunt diri undead historiarum.
-            </h4>
-            <div className="flex gap-0">
+          <div className="lg:col-span-5">
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3">
               <input
-                type="Email address"
-                name="q"
-                className="py-4 text-sm w-full text-black bg-white rounded-l-lg pl-4"
-                placeholder="@enter email-address"
-                autoComplete="off"
+                type="email"
+                required
+                className="py-4 px-5 text-sm w-full text-navyblue bg-white rounded-2xl focus:outline-none font-bold shadow-inner placeholder:text-darkgray"
+                placeholder="Masukkan alamat email atau No. WA"
               />
-              <button className="bg-midblue text-white font-medium py-2 px-4 rounded-r-lg">
-                <Image
-                  src={getImagePath("/assets/newsletter/plane.svg")}
-                  alt="plane-img"
-                  width={20}
-                  height={20}
-                />
+              <button
+                type="submit"
+                className="bg-blue hover:bg-white hover:text-navyblue text-white font-extrabold py-4 px-7 rounded-2xl transition-all duration-300 shadow-xl shadow-blue/30 shrink-0 text-sm whitespace-nowrap tracking-wide"
+              >
+                Kirim Konsultasi
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

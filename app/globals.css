@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +6,9 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+    color: #1E293B;
+    background-color: #FFFFFF;
 }
 
 html {
@@ -14,16 +16,47 @@ html {
     scroll-behavior: smooth !important;
 }
 
+/* Custom APN UI Utilities */
+.bg-apn-gradient {
+    background: linear-gradient(135deg, #0A234E 0%, #00BCBF 100%);
+}
+
+.text-apn-gradient {
+    background: linear-gradient(135deg, #0A234E 0%, #00BCBF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 188, 191, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(10, 35, 78, 0.06);
+}
+
+.card-apn {
+    background: #ffffff;
+    border: 1px solid rgba(0, 188, 191, 0.15);
+    box-shadow: 0 4px 20px rgba(10, 35, 78, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-apn:hover {
+    border-color: rgba(0, 188, 191, 0.45);
+    box-shadow: 0 14px 35px rgba(0, 188, 191, 0.15);
+    transform: translateY(-4px);
+}
+
 html:not([data-scroll="0"]) .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: white !important;
-    opacity: 1.9;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-    transition: 0.4s linear;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: 0.3s linear;
     padding: 0px !important;
-    z-index: 3;
+    z-index: 50;
 }
 
 .leafbutton {
