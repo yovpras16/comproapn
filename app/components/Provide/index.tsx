@@ -1,91 +1,109 @@
-import Image from "next/image";
-import Link from "next/link";
-import { getImagePath } from "../../../lib/utils";
+const layananData = [
+  {
+    title: "Retail Kebutuhan Umum",
+    description: "Penyediaan produk kebutuhan umum berkualitas bagi konsumen dan masyarakat luas.",
+    icon: "🛍️",
+  },
+  {
+    title: "Distribusi ke Toko & Instansi",
+    description: "Jaringan distribusi efisien dan tepat waktu untuk toko, mitra bisnis, dan instansi.",
+    icon: "🚚",
+  },
+  {
+    title: "Supply Toko, UMKM & Reseller",
+    description: "Dukungan pasokan stok barang yang stabil dan berkelanjutan untuk UMKM serta reseller.",
+    icon: "🏪",
+  },
+  {
+    title: "Pengadaan Operasional (B2B)",
+    description: "Pengadaan peralatan, ATK, dan kebutuhan operasional instansi maupun perusahaan.",
+    icon: "🏢",
+  },
+  {
+    title: "Kemitraan Distribusi",
+    description: "Kerja sama distribusi strategis jangka panjang untuk perluasan jangkauan produk.",
+    icon: "🤝",
+  },
+];
 
-interface datatype {
-  imgSrc: string;
-  country: string;
-  paragraph: string;
-}
-
-const Aboutdata: datatype[] = [
-  {
-    imgSrc: getImagePath("/assets/provide/marketing.svg"),
-    country: "Marketing",
-    paragraph: "Follow a hashtag total posts, videos",
-  },
-  {
-    imgSrc: getImagePath("/assets/provide/graphic.svg"),
-    country: "Graphic design",
-    paragraph: "Follow a hashtag total posts, videos",
-  },
-  {
-    imgSrc: getImagePath("/assets/provide/heaking.svg"),
-    country: "Heaking",
-    paragraph: "Follow a hashtag total posts, videos",
-  },
-  {
-    imgSrc: getImagePath("/assets/provide/uidesign.svg"),
-    country: "UI/UX Design",
-    paragraph: "Follow a hashtag total posts, videos",
-  },
+const kategoriProduk = [
+  "Kebutuhan Pokok & Konsumsi",
+  "Kebutuhan Rumah Tangga & Kebersihan",
+  "ATK & Operasional Kantor",
+  "Pasokan Toko, UMKM & Reseller",
+  "Pengadaan Barang Berdasarkan Permintaan",
 ];
 
 const Provide = () => {
   return (
-    <div id="services">
-      <div className="mx-auto max-w-7xl px-4 my-10 sm:py-20 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* COLUMN-1 */}
-          <div className="col-span-6 flex justify-center">
-            <div className="flex flex-col align-middle justify-center p-10">
-              <p className="text-4xl lg:text-6xl pt-4 font-semibold lh-81 mt-5 text-center lg:text-start">
-                We provide that service.
-              </p>
-              <h4 className="text-lg pt-4 font-normal lh-33 text-center lg:text-start text-bluegray">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo
-              </h4>
-              <Link
-                href={"/"}
-                className="mt-4 text-xl font-medium text-blue flex gap-2 mx-auto lg:mx-0 space-links"
-              >
-                Learn more{" "}
-                <Image
-                  src={getImagePath("/assets/provide/arrow.svg")}
-                  alt={"arrow"}
-                  width={20}
-                  height={20}
-                />
-              </Link>
-            </div>
-          </div>
+    <div id="services" className="py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* HEADER SECTION */}
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="text-navyblue text-xs sm:text-sm font-bold tracking-wider uppercase bg-lightblue px-4 py-1.5 rounded-full border border-blue/20">
+            04 & 05. Bidang Usaha & Produk
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navyblue mt-4">
+            Layanan & Kategori Produk Kami
+          </h2>
+          <p className="mt-4 text-lg text-darkgray font-medium">
+            Solusi penyediaan barang dan distribusi terpadu yang adaptif sesuai dinamika pasar.
+          </p>
+        </div>
 
-          <div className="lg:col-span-1"></div>
-
-          {/* COLUMN-2 */}
-          <div className="col-span-6 lg:col-span-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-10 lg:gap-x-40 px-10 py-12 bg-bluebg rounded-3xl">
-              {Aboutdata.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-3xl lg:-ml-32 p-6 shadow-xl"
-                >
-                  <Image
-                    src={item.imgSrc}
-                    alt={item.imgSrc}
-                    width={64}
-                    height={64}
-                    className="mb-5"
-                  />
-                  <h4 className="text-2xl font-semibold">{item.country}</h4>
-                  <h4 className="text-lg font-normal text-bluegray my-2">
-                    {item.paragraph}
-                  </h4>
+        {/* LAYANAN GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+          {layananData.map((item, index) => (
+            <div
+              key={index}
+              className="card-apn rounded-3xl p-8 flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-lightblue border border-blue/20 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                  {item.icon}
                 </div>
-              ))}
+                <h3 className="text-xl font-bold text-navyblue">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-base text-darkgray font-medium leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* KATEGORI PRODUK BOX */}
+        <div className="mt-16 bg-gradient-to-br from-navyblue via-darkblue to-blue rounded-3xl p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
+          <div className="absolute right-0 top-0 w-96 h-96 bg-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div className="lg:col-span-5">
+              <span className="text-blue font-bold text-xs sm:text-sm uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                Produk & Kategori Usaha
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold mt-3 leading-tight">
+                Ragam Kategori Kebutuhan Usaha & Umum
+              </h3>
+              <p className="mt-4 text-white/80 text-base leading-relaxed font-medium">
+                Kami menyediakan fleksibilitas pilihan produk untuk kebutuhan retail, grosir, maupun pengadaan khusus perusahaan.
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="grid sm:grid-cols-2 gap-4">
+                {kategoriProduk.map((kat, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white/10 backdrop-blur-md border border-white/20 hover:border-blue/50 rounded-2xl p-4 flex items-center gap-3 transition-all"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-blue text-white font-black flex items-center justify-center text-xs shrink-0 shadow-md">
+                      ✓
+                    </div>
+                    <span className="font-bold text-base text-white">
+                      {kat}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

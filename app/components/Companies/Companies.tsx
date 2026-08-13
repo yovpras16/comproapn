@@ -1,105 +1,31 @@
-"use client";
-import Image from "next/image";
-import { Component } from "react";
-import Slider from "react-slick";
-import { getImagePath } from "../../../lib/utils";
-
-// IMAGES DATA FOR CAROUSEL
-interface Data {
-  imgSrc: string;
-}
-
-const data: Data[] = [
-  {
-    imgSrc: getImagePath("/assets/carousel/google.svg"),
-  },
-  {
-    imgSrc: getImagePath("/assets/carousel/garnier.png"),
-  },
-  {
-    imgSrc: getImagePath("/assets/carousel/slack.png"),
-  },
-  {
-    imgSrc: getImagePath("/assets/carousel/udemy.png"),
-  },
-  {
-    imgSrc: getImagePath("/assets/carousel/google.svg"),
-  },
-  {
-    imgSrc: getImagePath("/assets/carousel/garnier.png"),
-  },
-  {
-    imgSrc: getImagePath("/assets/carousel/slack.png"),
-  },
-  {
-    imgSrc: getImagePath("/assets/carousel/udemy.png"),
-  },
+const partnerCategories = [
+  "🏪 Toko Retail & Minimarket",
+  "📦 UMKM & Reseller",
+  "🏢 Perusahaan & Kantor",
+  "🏛️ Instansi & Lembaga",
+  "🚚 Jaringan Supplier Nasional",
 ];
 
-// CAROUSEL SETTINGS
-export default class MultipleItems extends Component {
-  render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: false,
-      autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
-      cssEase: "linear",
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: false,
-          },
-        },
-        {
-          breakpoint: 700,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: false,
-          },
-        },
-        {
-          breakpoint: 500,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: false,
-          },
-        },
-      ],
-    };
-
-    return (
-      <div className="text-center">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="py-14">
-            <Slider {...settings}>
-              {data.map((item, i) => (
-                <div key={i}>
-                  <Image
-                    src={item.imgSrc}
-                    alt={item.imgSrc}
-                    width={150}
-                    height={150}
-                  />
-                </div>
-              ))}
-            </Slider>
-          </div>
-          <hr />
+const Companies = () => {
+  return (
+    <div className="py-10 bg-babyblue/30 border-y border-blue/15">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <p className="text-center text-xs font-extrabold uppercase tracking-widest text-navyblue/70 mb-6">
+          Melayani Kemitraan Multi-Sektor Terpercaya di Seluruh Indonesia
+        </p>
+        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+          {partnerCategories.map((item, i) => (
+            <div
+              key={i}
+              className="bg-white hover:bg-lightblue text-navyblue font-bold text-xs sm:text-sm px-6 py-3 rounded-full border border-blue/20 shadow-sm hover:shadow-md hover:border-blue/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-default"
+            >
+              {item}
+            </div>
+          ))}
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Companies;

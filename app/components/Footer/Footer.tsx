@@ -20,156 +20,93 @@ const products: ProductType[] = [
   },
 ];
 
+const footerLinks = [
+  { name: "Beranda", href: "#home" },
+  { name: "Tentang Kami", href: "#about" },
+  { name: "Visi & Misi", href: "#visimisi" },
+  { name: "Layanan & Produk", href: "#services" },
+  { name: "Keunggulan", href: "#advantages" },
+  { name: "Legalitas & Kontak", href: "#contact" },
+];
+
 const footer = () => {
   return (
-    <div className="bg-darkblue -mt-40">
-      <div className="mx-auto max-w-2xl pt-48 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="my-24 grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8">
-          {/* COLUMN-1 */}
-
-          <div className="col-span-4 md:col-span-12 lg:col-span-4">
-            <img
-              src={getImagePath("/assets/footer/logo.svg")}
-              alt="logo"
-              className="pb-8"
-            />
-            <div className="flex gap-4">
-              <Link
-                href="#!"
-                onClick={(e) => e.preventDefault()}
-                className="footer-fb-icons"
-              >
-                <Image
-                  src={getImagePath("/assets/footer/facebook.svg")}
-                  alt="facebook"
-                  width={15}
-                  height={20}
-                />
-              </Link>
-              <Link
-                href="#!"
-                onClick={(e) => e.preventDefault()}
-                className="footer-icons"
-              >
-                <Image
-                  src={getImagePath("/assets/footer/twitter.svg")}
-                  alt="twitter"
-                  width={20}
-                  height={20}
-                />
-              </Link>
-              <Link
-                href="#!"
-                onClick={(e) => e.preventDefault()}
-                className="footer-icons"
-              >
-                <Image
-                  src={getImagePath("/assets/footer/instagram.svg")}
-                  alt="instagram"
-                  width={20}
-                  height={20}
-                />
-              </Link>
+    <div id="contact" className="bg-darkblue text-white pt-24 pb-12 border-t border-blue/20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-white/15">
+          
+          {/* KOLOM 1: LOGO & SLOGAN */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src={getImagePath("/assets/logo/apn-official-logo.png")}
+                alt="PT Arta Perdana Nusantara"
+                className="h-12 w-auto object-contain bg-white p-1.5 rounded-xl shadow-md"
+              />
+            </div>
+            <p className="text-white/80 text-sm leading-relaxed mb-6 font-medium">
+              Retail, Distribution & Supply Partner terpercaya. Menyediakan Kebutuhan, Membangun Kepercayaan.
+            </p>
+            <div className="inline-block bg-white/10 text-blue text-xs font-bold px-4 py-2 rounded-full border border-white/15">
+              Supplier | Retail | Pengadaan
             </div>
           </div>
 
-          {/* CLOUMN-2/3 */}
+          {/* KOLOM 2: NAVIGASI CEPAT */}
+          <div className="lg:col-span-3">
+            <h4 className="text-lg font-extrabold mb-5 text-white">Navigasi Halaman</h4>
+            <ul className="space-y-3">
+              {footerLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.href}
+                    className="text-white/70 hover:text-blue text-sm font-medium transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="group relative col-span-2 md:col-span-4 lg:col-span-2"
-            >
-              <ul>
-                {product.link.map((link: string, index: number) => (
-                  <li key={index} className="mb-5">
-                    <Link
-                      href="/"
-                      className="text-white text-sm font-normal mb-6 space-links"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* CLOUMN-4 */}
-
-          <div className="col-span-4 md:col-span-4 lg:col-span-4">
-            <div className="flex gap-2">
-              <Image
-                src={getImagePath("/assets/footer/mask.svg")}
-                alt="mask-icon"
-                width={24}
-                height={24}
-              />
-              <h5 className="text-base font-normal text-offwhite">
-                925 Filbert Street Pennsylvania 18072
-              </h5>
-            </div>
-            <div className="flex gap-2 mt-10">
-              <Image
-                src={getImagePath("/assets/footer/telephone.svg")}
-                alt="telephone-icon"
-                width={24}
-                height={24}
-              />
-              <h5 className="text-base font-normal text-offwhite">
-                + 45 34 11 44 11
-              </h5>
-            </div>
-            <div className="flex gap-2 mt-10">
-              <Image
-                src={getImagePath("/assets/footer/email.svg")}
-                alt="email-icon"
-                width={24}
-                height={24}
-              />
-              <h5 className="text-base font-normal text-offwhite">
-                info@gmail.com
-              </h5>
+          {/* KOLOM 3: KONTAK & ALAMAT HQ */}
+          <div className="lg:col-span-5">
+            <h4 className="text-lg font-extrabold mb-5 text-white">Hubungi & Lokasi Kami</h4>
+            <div className="space-y-4 text-sm text-white/80 font-medium">
+              <div className="flex items-start gap-3">
+                <span className="text-blue text-lg shrink-0">📍</span>
+                <div>
+                  <strong className="block text-white font-bold">Jakarta (HQ):</strong>
+                  Jl. Tebet Raya No.62 Rt.02/04 East Tebet, South Jakarta, DKI Jakarta 12820
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-blue text-lg shrink-0">✉️</span>
+                <div>
+                  <strong className="block text-white font-bold">Email Resmi:</strong>
+                  contact@artanus.com / contact@artanus.id
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-blue text-lg shrink-0">📞</span>
+                <div>
+                  <strong className="block text-white font-bold">Telepon / WhatsApp:</strong>
+                  (021) 000 000 00 / 08xx-xxxx-xxxx
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
 
-        {/* All Rights Reserved */}
-
-        <div className="py-10 lg:flex items-center justify-between border-t border-t-bordertop">
-          <h4 className="text-offwhite text-sm text-center lg:text-start font-normal">
-            @2025 Agency. All Rights Reserved by{" "}
-            <Link href="https://getnextjstemplates.com/" target="_blank">
-              {" "}
-              GetNextjsTemplates.
-            </Link>{" "}
-            Distributed by{" "}
-            <Link href="https://themewagon.com/" target="_blank">
-              ThemeWagon
-            </Link>
-          </h4>
-
-          <div className="flex gap-5 mt-5 lg:mt-0 justify-center lg:justify-start">
-            <h4 className="text-offwhite text-sm font-normal">
-              <a
-                href="#!"
-                onClick={(e) => e.preventDefault()}
-                className="cursor-pointer"
-              >
-                Privacy policy
-              </a>
-            </h4>
-            <div className="h-5 bg-bordertop w-0.5"></div>
-            <h4 className="text-offwhite text-sm font-normal">
-              <a
-                href="#!"
-                onClick={(e) => e.preventDefault()}
-                className="cursor-pointer"
-              >
-                Terms & conditions
-              </a>
-            </h4>
-          </div>
+        {/* HAK CIPTA */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-white/60">
+          <p>
+            © {new Date().getFullYear()} PT Arta Perdana Nusantara. All Rights Reserved.
+          </p>
+          <p className="text-center sm:text-right text-blue font-bold">
+            www.artanus.id | www.artanus.com
+          </p>
         </div>
       </div>
     </div>
