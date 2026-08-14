@@ -76,22 +76,22 @@ const footer = () => {
               <div className="flex items-start gap-3">
                 <span className="text-blue text-lg shrink-0">📍</span>
                 <div>
-                  <strong className="block text-white font-bold">Jakarta (HQ):</strong>
-                  Jl. Tebet Raya No.62 Rt.02/04 East Tebet, South Jakarta, DKI Jakarta 12820
+                  <strong className="block text-white font-bold">Depok (HQ):</strong>
+                  Klp. Dua,Tugu, Cimanggis, Depok, Jawa Barat 16451
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-blue text-lg shrink-0">✉️</span>
                 <div>
                   <strong className="block text-white font-bold">Email Resmi:</strong>
-                  contact@artanus.com / contact@artanus.id
+                  admin@artanus.id
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-blue text-lg shrink-0">📞</span>
                 <div>
                   <strong className="block text-white font-bold">Telepon / WhatsApp:</strong>
-                  (021) 000 000 00 / 08xx-xxxx-xxxx
+                  0811 1618 131
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@ const footer = () => {
             © {new Date().getFullYear()} PT Arta Perdana Nusantara. All Rights Reserved.
           </p>
           <p className="text-center sm:text-right text-blue font-bold">
-            www.artanus.id | www.artanus.com
+            www.artanus.id
           </p>
         </div>
       </div>
